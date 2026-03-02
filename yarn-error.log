@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/bin/node /usr/bin/yarn add express ejs podyparser
+
+PATH: 
+  /home/schwarz/.rvm/gems/ruby-2.6.0/bin:/home/schwarz/.rvm/gems/ruby-2.6.0@global/bin:/home/schwarz/.rvm/rubies/ruby-2.6.0/bin:/home/schwarz/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/opt/android-sdk/platform-tools:/opt/android-sdk/tools:/opt/android-sdk/tools/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/schwarz/Android/Sdk/tools:/home/schwarz/Android/Sdk/tools/bin:/home/schwarz/Android/Sdk/platform-tools:/home/schwarz/.rvm/bin:/sbin:/usr/sbin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/schwarz/go/bin:/home/schwarz/Android/Sdk/tools:/home/schwarz/Android/Sdk/tools/bin:/home/schwarz/Android/Sdk/platform-tools:/home/schwarz/.rvm/bin:/home/schwarz/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/schwarz/go/bin:/home/schwarz/Android/Sdk/tools:/home/schwarz/Android/Sdk/tools/bin:/home/schwarz/Android/Sdk/platform-tools:/home/schwarz/.rvm/bin:/home/schwarz/.rvm/bin
+
+Yarn version: 
+  1.19.2
+
+Node version: 
+  13.2.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/podyparser: Not found
+      at Request.params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66927:18)
+      at Request.self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140586:22)
+      at Request.emit (events.js:210:5)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141558:10)
+      at Request.emit (events.js:210:5)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141480:12)
+      at Object.onceWrapper (events.js:299:28)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1200:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
+
+npm manifest: 
+  {
+    "name": "IceCream",
+    "version": "1.0.0",
+    "description": "Simple ice-cream monitoring system",
+    "main": "index.js",
+    "directories": {
+      "test": "tests"
+    },
+    "scripts": {
+      "start":"nodemon index.js"
+    },
+    "author": "Franziska Schwarz",
+    "license": "GPLv3",
+    "dependencies": {
+    },
+    "devDependencies": {
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

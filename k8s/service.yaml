@@ -1,0 +1,22 @@
+# ==============================================================
+# Kubernetes Service - IceCream Application
+# ==============================================================
+apiVersion: v1
+kind: Service
+metadata:
+  name: icecream-service
+  namespace: default
+  labels:
+    app: icecream
+  annotations:
+    description: "Exposes IceCream app within/outside the cluster"
+spec:
+  type: NodePort          # Use LoadBalancer for cloud; NodePort for Minikube
+  selector:
+    app: icecream         # Matches pod labels in Deployment
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80            # Service port (cluster-internal)
+      targetPort: 3000    # Container port
+      nodePort: 30080     # External port on Minikube node (30000–32767)

@@ -1,0 +1,87 @@
+# ==============================================================
+# Kubernetes Deployment - IceCream Application
+# ==============================================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: icecream-deployment
+  namespace: default
+  labels:
+    app: icecream
+    version: "1.0.0"
+    environment: production
+  annotations:
+    description: "IceCream web application deployment"
+    deployed-by: "devops-student"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: icecream
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1          # Allow 1 extra pod during update
+      maxUnavailable: 0    # Never reduce below desired count
+  template:
+    metadata:
+      labels:
+        app: icecream
+        version: "1.0.0"
+    spec:
+      # Graceful shutdown
+      terminationGracePeriodSeconds: 30
+
+      containers:
+        - name: icecream
+          image: icecream-app:latest       # Replace with your image name/tag
+          imagePullPolicy: IfNotPresent    # Use Never for minikube local builds
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+
+          # Environment Variables
+          env:
+            - name: NODE_ENV
+              value: "production"
+            - name: PORT
+              value: "3000"
+
+          # Resource Limits & Requests
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+
+          # Startup Probe - gives app time to initialize
+          startupProbe:
+            httpGet:
+              path: /
+              port: 3000
+            failureThreshold: 10    # Retry up to 10 times
+            periodSeconds: 5        # Every 5 seconds (= 50s max startup)
+
+          # Readiness Probe - gates traffic
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            failureThreshold: 3
+            successThreshold: 1
+
+          # Liveness Probe - restarts if unhealthy
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+            failureThreshold: 3
+
+      # Restart policy
+      restartPolicy: Always

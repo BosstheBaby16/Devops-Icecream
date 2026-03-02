@@ -1,0 +1,35 @@
+body {
+    background:  white;
+    background-image: url("/2.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main-element{
+    margin-top: 10%;
+    margin-bottom: auto;
+}
+
+.card{
+    width: 100%;
+    height: auto;
+}
+
+input[readonly].disabled{
+    background-color: #e0afbd !important;
+    font-size: 1em;
+}
+
+.enabled{
+    background-color: #f9cec3 !important;
+    font-size: 1em;
+}
+
+.alert-placeholder{
+    width : 100%;
+    margin-top: 2em;
+    height : 30px;
+    justify-content: center;
+}

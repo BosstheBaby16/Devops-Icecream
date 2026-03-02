@@ -1,0 +1,28 @@
+body {
+    background:  white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.main-element{
+    margin-top: 10%;
+    margin-bottom: auto;
+}
+
+.card{
+    width: 59%;
+}
+
+input[readonly].disabled{
+    background-color:transparent !important;
+    font-size: 1em;
+}
+
+.alert-placeholder{
+    width : 100%;
+    margin-top: 2em;
+    height : 30px;
+    justify-content: center;
+}
